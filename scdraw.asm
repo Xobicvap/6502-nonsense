@@ -31,7 +31,7 @@ CLEAR:
 ; avoid scratchpad memory used by firmware etc which is 
 ; LOCATED IN THE GRAPHICS PAGE BECAUSE WTF
 
-; if you're feeling ambitious,; look at $F827 in monitor. 
+; if you're feeling ambitious,; look at $F847 in monitor. 
 ; yes, there's an entire machine language subroutine, and a rather
 ; weird one at that, entirely to calculate the address of a pixel.
 ; low-res graphics memory is NOT continuous, for reasons that escape me..
@@ -94,7 +94,7 @@ INCCOLOR:
 NOINC:
   RTS
 
-; decrement Y position in byte $06  
+; decrement Y position in byte $07  
 MOVEUP:
   LDA cur_y
   BEQ NOUP ; don't let Y position decrement past 0
@@ -102,7 +102,7 @@ MOVEUP:
 NOUP:
   RTS
 
-; decrement X position in byte $07  
+; decrement X position in byte $06
 MOVELEFT:
   LDA cur_x
   BEQ NOLEFT ; same deal, don't let X position decrement past 0
@@ -110,7 +110,7 @@ MOVELEFT:
 NOLEFT:
   RTS
 
-; increment X position in byte $07  
+; increment X position in byte $06  
 MOVERIGHT:
   LDA cur_x
   CMP #$28 ; don't let X position increment past 40 (decimal)
@@ -119,7 +119,7 @@ MOVERIGHT:
 NORIGHT:
   RTS
 
-; increment Y position in byte $06  
+; increment Y position in byte $07  
 MOVEDOWN:
   LDA cur_y
   CMP #$30 ; don't let Y position increment past 48
