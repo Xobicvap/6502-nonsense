@@ -2,11 +2,11 @@
 ; these definitions are meant for Easy6502 because I'm both lazy and impatient
 ; http://skilldrick.github.io/easy6502/
 ; convert these to the definition format of your favorite assembler
-define cur_x $06
-define cur_y $07
-define blink_color $08
-define kbcode $09
-define kbcurrent $eb
+cur_x = $06
+cur_y = $07
+blink_color = $08
+kbcode = $09
+kbcurrent = $eb
 
 ; store 0 at $30 (color byte)
 SETUP:
